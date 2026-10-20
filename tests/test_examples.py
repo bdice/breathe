@@ -347,7 +347,8 @@ def test_multiple_projects(make_app, tmp_path, monkeypatch, doxygen, doxygen_cac
     )
 
 
-DOCNAMES = {f"doc{i}" for i in range(4)}
+# Sphinx < 8.1 only reads in parallel when there are more than five documents.
+DOCNAMES = {f"doc{i}" for i in range(6)}
 
 
 @pytest.fixture
